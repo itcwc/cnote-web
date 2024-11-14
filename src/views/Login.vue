@@ -1,24 +1,24 @@
 <template>
   <div class="container">
     <div class="card">
-      <h1>Login Page</h1>
+      <h1>{{ $t("login_view.title") }}</h1>
       <form @submit.prevent="handleLogin">
         <div class="input-group">
-          <label>Email:</label>
+          <label>{{ $t("login_view.email") }}</label>
           <input type="email" v-model="email" required />
         </div>
         <div class="input-group">
-          <label>Password:</label>
+          <label>{{ $t("login_view.password") }}</label>
           <input type="password" v-model="password" required />
         </div>
-        <button type="submit">Login</button>
+        <button type="submit">{{ $t("login_view.login") }}</button>
       </form>
       <p class="register-prompt">
-        Don't have an account?
-        <router-link to="/register">Register here</router-link>
+        {{ $t("login_view.register1") }}
+        <router-link to="/register">{{ $t("login_view.register2") }}</router-link>
       </p>
       <p class="forgot-password">
-        <router-link to="/forgot-password">Forgot Password?</router-link>
+        <router-link to="/forgot-password">{{ $t("login_view.forgot_password") }}</router-link>
       </p>
     </div>
   </div>
@@ -49,79 +49,79 @@ export default defineComponent({
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #f0f0f0; /* 背景颜色 */
+  min-height: 82vh;
+  background-color: #f0f3f5;
   padding: 20px;
   border-radius: 8px;
-  margin: 20px;
+  margin: 10px 0 0 0;
 }
 
 .card {
-  background-color: white; /* 卡片背景颜色 */
-  padding: 20px; /* 内边距 */
-  border-radius: 8px; /* 圆角 */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 阴影效果 */
-  text-align: center; /* 文本居中 */
-  width: 500px; /* 设置卡片宽度 */
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 500px;
 }
 
 .input-group {
-  display: flex; /* 使用 Flexbox */
-  align-items: center; /* 垂直居中 */
-  margin: 20px 0; /* 输入框上下间距 */
-  width: 100%; /* 确保输入框占满宽度 */
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  width: 100%;
 }
 
 label {
-  width: 120px; /* 标签宽度 */
-  text-align: left; /* 标签左对齐 */
+  width: 120px;
+  text-align: left;
 }
 
 input {
-  padding: 10px; /* 内边距 */
-  border: 1px solid #ccc; /* 边框 */
-  border-radius: 4px; /* 圆角 */
-  width: 100%; /* 宽度占满 */
-  box-sizing: border-box; /* 包含边框和内边距 */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 button {
-  background-color: #007bff; /* 按钮背景颜色 */
-  color: white; /* 按钮文字颜色 */
-  border: none; /* 去掉边框 */
-  padding: 10px; /* 内边距 */
-  border-radius: 4px; /* 圆角 */
-  cursor: pointer; /* 鼠标悬停时显示手型 */
-  width: 100%; /* 宽度占满 */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
 }
 
 button:hover {
-  background-color: #0056b3; /* 悬停时背景颜色 */
+  background-color: #0056b3;
 }
 
 .register-prompt {
-  margin-top: 10px; /* 上间距 */
+  margin-top: 10px;
 }
 
 .register-prompt a {
-  color: #007bff; /* 链接颜色 */
-  text-decoration: none; /* 去掉下划线 */
+  color: #007bff;
+  text-decoration: none;
 }
 
 .register-prompt a:hover {
-  text-decoration: underline; /* 悬停时显示下划线 */
+  text-decoration: underline;
 }
 
 .forgot-password {
-  margin-top: 5px; /* 上间距 */
+  margin-top: 5px;
 }
 
 .forgot-password a {
-  color: #007bff; /* 链接颜色 */
-  text-decoration: none; /* 去掉下划线 */
+  color: #007bff;
+  text-decoration: none;
 }
 
 .forgot-password a:hover {
-  text-decoration: underline; /* 悬停时显示下划线 */
+  text-decoration: underline;
 }
 </style>

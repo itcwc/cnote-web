@@ -1,0 +1,101 @@
+{
+  "titles": {
+    "Home": "Home - CNote",
+    "Editor": "Editor - CNote",
+    "Sync": "Sync - CNote",
+    "Login": "Login - CNote",
+    "Register": "Register - CNote",
+    "ForgotPassword": "ForgotPassword - CNote"
+  },
+  "home": "Home",
+  "editor": "Editor",
+  "sync": "Sync",
+  "login": "Login",
+  "home_view": {
+    "intro": "Cnote - Web Clipper Extension",
+    "intro_description": "Cnote is a simple and efficient browser extension that helps users clip content from web pages into Markdown notes. It supports multi-format export and cloud synchronization to keep your notes accessible across devices.",
+    "features": "🌟 Features",
+    "features_list": {
+      "step1": "📝 Select text from web pages and save it as a note in Markdown format.",
+      "step2": "📑 Export notes in multiple formats: .md, .pdf, .html, .docx, and .txt.",
+      "step3": "☁️ Save notes to the cloud for seamless synchronization across devices.",
+      "step4": "🖱️ Quick right-click menu: 'Add to New Note' option.",
+      "step5": "🎨 Markdown editor with a real-time preview."
+    },
+    "installation_guide": "🚀 Installation Guide",
+    "chrome_installation": {
+      "browser_title": "For Chrome Browser",
+      "step1_before": "Visit the ",
+      "step1_text": "Chrome Web Store",
+      "step1_after": " to download and install the extension.",
+      "step2": "Once installed, right-click on any selected text and choose 'Add to New Note.'"
+    },
+    "edge_installation": {
+      "browser_title": "For Edge Browser",
+      "step1_before": "Visit the ",
+      "step1_text": "Edge Add-ons Store",
+      "step2": "Follow the instructions to install and start using the extension."
+    },
+    "screenshots": {
+      "screenshot_title": "📸 Screenshots",
+      "screenshot_1": "Add text to notes",
+      "screenshot_2": "Editor",
+      "screenshot_3": "Add image to notes",
+      "screenshot_4": "Image in editor",
+      "screenshot_5": "Settings"
+    },
+    "privacy_policy": {
+      "title": "📄 Privacy Policy",
+      "description": "We are committed to protecting your privacy and ensuring your data is secure. For more details, please refer to our privacy policy:",
+      "links": {
+        "cn": "隐私政策 (CN)",
+        "en": "Privacy Policy (EN)"
+      }
+    },
+    "contact_us": {
+      "title": "📬 Contact Us",
+      "description": "If you have any questions or feedback, feel free to reach out to us:",
+      "email": "Email:",
+      "github": "Submit an Issue"
+    },
+    "license": {
+      "title": "⚠️ License",
+      "description1": "This project is open source and licensed under the ",
+      "description2": ". You are free to use, modify, and distribute it."
+    }
+  },
+  "login_view": {
+    "login": "Login",
+    "title": "Login Page",
+    "email": "Email:",
+    "password": "Password:",
+    "register1": "Don't have an account?",
+    "register2": "Register here",
+    "forgot_password": "Forgot Password?"
+  },
+  "register_view": {
+    "register": "Register",
+    "title": "Register Page",
+    "email": "Email:",
+    "password": "Password:",
+    "confirm_password": "Confirm Password:",
+    "login1": "Already have an account?",
+    "login2": "Login here"
+  },
+  "forgot_password_view": {
+    "title": "Forgot Password",
+    "tips": "Please enter your email address to reset your password.",
+    "email": "Email:",
+    "submit": "Send Reset Link",
+    "login1": "Already have an account?",
+    "login2": "Login here"
+  },
+  "editor_view": {
+    "left": {
+      "title": "File Management",
+      "new_file": "Create New File",
+      "new_folder": "Create New Folder",
+      "back_to_edit_page": "Return to Edit Page"
+    }
+  }
+}

@@ -1,105 +1,108 @@
 <template>
-    <div class="container">
-      <div class="card">
-        <h1>Forgot Password</h1>
-        <p>Please enter your email address to reset your password.</p>
-        <form @submit.prevent="handleSubmit">
-          <div class="input-group">
-            <label>Email:</label>
-            <input type="email" v-model="email" required />
-          </div>
-          <button type="submit">Send Reset Link</button>
-        </form>
-        <p class="login-prompt">
-          Remembered your password? <router-link to="/login">Login here</router-link>
-        </p>
-      </div>
+  <div class="container">
+    <div class="card">
+      <h2>{{ $t("forgot_password_view.title") }}</h2>
+      <p>{{ $t("forgot_password_view.tips") }}</p>
+      <form @submit.prevent="handleSubmit">
+        <div class="input-group">
+          <label>{{ $t("forgot_password_view.email") }}</label>
+          <input type="email" v-model="email" required />
+        </div>
+        <button type="submit">{{ $t("forgot_password_view.submit") }}</button>
+      </form>
+      <p class="login-prompt">
+        {{ $t("forgot_password_view.login1") }} <router-link to="/login">{{ $t("forgot_password_view.login2")
+          }}</router-link>
+      </p>
     </div>
-  </template>
-  
-  <script lang="ts">
-  import { defineComponent } from 'vue';
-  
-  export default defineComponent({
-    name: 'ForgotPassword',
-    data() {
-      return {
-        email: '',
-      };
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'ForgotPassword',
+  data() {
+    return {
+      email: '',
+    };
+  },
+  methods: {
+    handleSubmit() {
+      console.log(`Reset link sent to ${this.email}`);
+      // 这里可以调用发送重置链接的 API
+      this.email = ''; // 清空输入框
     },
-    methods: {
-      handleSubmit() {
-        console.log(`Reset link sent to ${this.email}`);
-        // 这里可以调用发送重置链接的 API
-        this.email = ''; // 清空输入框
-      },
-    },
-  });
-  </script>
-  
-  <style scoped>
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* 使容器充满整个视口 */
-    background-color: #f0f0f0; /* 背景颜色 */
-  }
-  
-  .card {
-    background-color: white; /* 卡片背景颜色 */
-    padding: 20px; /* 内边距 */
-    border-radius: 8px; /* 圆角 */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 阴影效果 */
-    text-align: center; /* 文本居中 */
-    width: 500px; /* 设置卡片宽度 */
-  }
-  
-  .input-group {
-    display: flex; /* 使用 Flexbox */
-    align-items: center; /* 垂直居中 */
-    margin: 20px 0; /* 输入框上下间距 */
-    width: 100%; /* 确保输入框占满宽度 */
-  }
-  
-  label {
-    width: 120px; /* 标签宽度 */
-    text-align: left; /* 标签左对齐 */
-  }
-  
-  input {
-    padding: 10px; /* 内边距 */
-    border: 1px solid #ccc; /* 边框 */
-    border-radius: 4px; /* 圆角 */
-    width: 100%; /* 宽度占满 */
-    box-sizing: border-box; /* 包含边框和内边距 */
-  }
-  
-  button {
-    background-color: #007bff; /* 按钮背景颜色 */
-    color: white; /* 按钮文字颜色 */
-    border: none; /* 去掉边框 */
-    padding: 10px; /* 内边距 */
-    border-radius: 4px; /* 圆角 */
-    cursor: pointer; /* 鼠标悬停时显示手型 */
-    width: 100%; /* 宽度占满 */
-  }
-  
-  button:hover {
-    background-color: #0056b3; /* 悬停时背景颜色 */
-  }
-  
-  .login-prompt {
-    margin-top: 10px; /* 上间距 */
-  }
-  
-  .login-prompt a {
-    color: #007bff; /* 链接颜色 */
-    text-decoration: none; /* 去掉下划线 */
-  }
-  
-  .login-prompt a:hover {
-    text-decoration: underline; /* 悬停时显示下划线 */
-  }
-  </style>
-  
+  },
+});
+</script>
+
+<style scoped>
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 82vh;
+  background-color: #f0f3f5;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 10px 0 0 0;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 500px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  width: 100%;
+}
+
+label {
+  width: 120px;
+  text-align: left;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.login-prompt {
+  margin-top: 10px;
+}
+
+.login-prompt a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-prompt a:hover {
+  text-decoration: underline;
+}
+</style>

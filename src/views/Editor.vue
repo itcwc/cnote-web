@@ -1,24 +1,19 @@
 <template>
   <div id="editor-page">
     <!-- 左侧文件管理区域 -->
-    <aside class="sidebar">
-      <p>文件管理</p>
-      <button @click="createNewFile">新建文件</button>
-      <button @click="createNewFolder">新建文件夹</button>
-      <button
-        v-if="selectedFile"
-        @click="selectedFile = null"
-        class="back-to-home-btn"
-      >
-        返回编辑首页
+
+    <div class="action-bar">
+      <p>{{ $t('editor_view.left.title') }}</p>
+      <button @click="createNewFile">{{ $t('editor_view.left.new_file') }}</button>
+      <button @click="createNewFolder">{{ $t('editor_view.left.new_folder') }}</button>
+      <button v-if="selectedFile" @click="selectedFile = null" class="back-to-home-btn">
+        {{ $t('editor_view.left.back_to_edit_page') }}
       </button>
+    </div>
+
+    <aside class="sidebar">
       <div class="file-tree">
-        <FileTreeItem
-          v-for="file in files"
-          :key="file.id"
-          :item="file"
-          @select-file="selectFile"
-        />
+        <FileTreeItem v-for="file in files" :key="file.id" :item="file" @select-file="selectFile" />
       </div>
     </aside>
 
@@ -36,10 +31,7 @@
       </div>
 
       <div v-else class="md-editor">
-        <textarea
-          v-model="selectedFile.content"
-          placeholder="在这里编辑..."
-        ></textarea>
+        <Editormd :value="selectedFile.content" />
       </div>
     </main>
   </div>
@@ -47,11 +39,13 @@
 
 <script>
 import FileTreeItem from "./FileTreeItem.vue";
+import Editormd from "./Editormd.vue";
 
 export default {
   name: "ParentComponent",
   components: {
     FileTreeItem, // 注册组件
+    Editormd
   },
 
   data() {
@@ -72,10 +66,81 @@ export default {
           ],
         },
         { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
+        { id: 5, name: "文件3.txt", isFolder: false },
       ],
-      selectedFile: null, // 当前选中的文件
+      selectedFile: "cccc", // 当前选中的文件
       notes: [
-        { id: 1, title: "示例笔记1", preview: "这是一个示例笔记摘要不不不不不不不不不不不不不不不不不不不不不不不cccc不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不..." },
+        {
+          id: 1,
+          title: "示例笔记1",
+          preview:
+            "这是一个示例笔记摘要不不不不不不不不不不不不不不不不不不不不不不不cccc不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不不...",
+        },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
+        { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
         { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
         { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
         { id: 2, title: "示例笔记2", preview: "这是另一个示例笔记摘要..." },
@@ -90,8 +155,7 @@ export default {
         {
           id: 2,
           title: "示例笔记2",
-          preview:
-            "这是另一个示例笔记摘要...",
+          preview: "这是另一个示例笔记摘要...",
         },
 
         // 可以添加更多的预设笔记
@@ -115,14 +179,21 @@ export default {
 <style scoped>
 #editor-page {
   display: flex;
-  height: 100vh;
+  height: 90vh;
+  background-color: #f0f3f5;
+  margin: 10px 0 0 0;
+  padding: 0 0 0 15px;
 }
 
 .sidebar {
-  width: 250px;
-  background-color: #f4f4f4;
+  width: 200px;
+  background-color: white;
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  margin: 10px 0px 5px 0px;
+  border-radius: 5px;
+
+  overflow: hidden;
 }
 
 button {
@@ -132,7 +203,7 @@ button {
   padding: 10px;
   border-radius: 4px;
   cursor: pointer;
-  width: 100%;
+  width: 80%;
   margin: 10px 0;
 }
 
@@ -152,27 +223,18 @@ button {
 
 .editor-area {
   flex: 1;
-  padding: 20px;
-}
-
-/* .back-to-home-btn {
-  margin: 10px;
   padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-} */
-
-/* .back-to-home-btn:hover {
-  background-color: #0056b3;
-} */
+  overflow: hidden;
+}
 
 .note-cards {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+
+  max-height: 99%;
+  overflow-y: auto;
+  padding: 10px 0 10px 10px;
 }
 
 .note-card {
@@ -215,13 +277,17 @@ button {
 
 .preview-text {
   display: block;
-  white-space: normal; /* 允许换行 */
-  word-wrap: break-word; /* 确保长单词也能换行 */
+  white-space: normal;
+  word-wrap: break-word;
 }
 
 .file-tree {
   list-style: none;
   padding: 0;
+  margin: 10px 0 0 0;
+
+  max-height: 99%;
+  overflow-y: auto;
 }
 
 .file-tree-item {

@@ -27,7 +27,14 @@
 
     <div class="card installation">
       <h2>🚀 安装指南</h2>
-      <h3>对于 Chrome 浏览器</h3>
+      <h3 class="browser-title">
+        <img
+          src="../assets/images/chrome-logo.png"
+          alt="Chrome Logo"
+          class="browser-logo"
+        />
+        对于 Chrome 浏览器
+      </h3>
       <ol>
         <li>
           访问
@@ -40,7 +47,14 @@
         <li>安装完成后，右键选择任意文本并选择“添加到新笔记”。</li>
       </ol>
 
-      <h3>对于 Edge 浏览器</h3>
+      <h3 class="browser-title">
+        <img
+          src="../assets/images/edge-logo.png"
+          alt="Edge Logo"
+          class="browser-logo"
+        />
+        对于 Edge 浏览器
+      </h3>
       <ol>
         <li>
           访问
@@ -142,7 +156,7 @@
       <h2>⚠️ 许可协议</h2>
       <p>
         本项目基于
-        <a href="LICENSE">MIT License</a>开源，您可以自由地使用和修改。
+        <a href="https://github.com/itcwc/c-note-extension/LICENSE">MIT License</a>开源，您可以自由地使用和修改。
       </p>
     </div>
   </div>
@@ -209,6 +223,17 @@ export default defineComponent({
 .swiper-button-prev,
 .swiper-button-next {
   color: #000;
+}
+
+.browser-title {
+  display: inline-flex;
+  align-items: center;
+}
+
+.browser-logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 8px;
 }
 
 h1,

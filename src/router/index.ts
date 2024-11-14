@@ -3,9 +3,10 @@ import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import Editor from "../views/Editor.vue";
 import Sync from "../views/Sync.vue";
-import CnHome from "../views/CnHome.vue";
+// import CNHome from "../views/zh-CN/Home.vue";
 import Register from "../views/Register.vue";
 import ForgotPassword from '../views/ForgotPassword.vue';
+import { i18n } from '../main'; // 导入 i18n 实例
 
 
 
@@ -16,49 +17,14 @@ declare module 'vue-router' {
   }
 }
 
-const routes: Array<RouteRecordRaw> = [
-  {
-    path: "/",
-    name: "Home",
-    component: Home,
-    meta: { title: "Home - cnote" }
-  },
-  {
-    path: "/editor",
-    name: "Editor",
-    component: Editor,
-    meta: { title: "Editor - Cnote" }
-  },
-  {
-    path: "/sync",
-    name: "Sync",
-    component: Sync,
-    meta: { title: "Sync - Cnote" }
-  },
-  {
-    path: "/zh-CN",
-    name: "CnHome",
-    component: CnHome,
-    meta: { title: "CNHome - Cnote" }
-  },
-  {
-    path: "/login",
-    name: "Login",
-    component: Login,
-    meta: { title: "Login - Cnote" }
-  },
-  {
-    path: "/register",
-    name: "Register",
-    component: Register,
-    meta: { title: "Register - Cnote" }
-  },
-  {
-    path: "/forgot-password",
-    name: "ForgotPassword",
-    component: ForgotPassword,
-    meta: { title: "ForgotPassword - Cnote" }
-  }
+// 使用 i18n 实例
+const routes = [
+  { path: '/', name: 'Home', component: Home },
+  { path: '/editor', name: 'Editor', component: Editor },
+  { path: '/sync', name: 'Sync', component: Sync },
+  { path: '/login', name: 'Login', component: Login },
+  { path: '/register', name: 'Register', component: Register },
+  { path: '/forgot-password', name: 'ForgotPassword', component: ForgotPassword },
 ];
 
 // 创建路由实例
@@ -67,9 +33,14 @@ const router = createRouter({
   routes,
 });
 
-// 设置路由守卫动态更新网页标题
-router.afterEach((to) => {
-  document.title = to.meta.title || 'Cnote';
+router.beforeEach((to, from, next) => {
+  // 使用 String() 确保 to.name 是一个字符串
+  const pageTitle = i18n.global.t(`titles.${String(to.name)}`);
+  if (pageTitle) {
+    document.title = pageTitle;
+  }
+  next();
 });
+
 
 export default router;

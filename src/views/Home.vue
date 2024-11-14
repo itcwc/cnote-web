@@ -1,101 +1,86 @@
 <template>
   <div class="home-container">
     <div id="intro" class="card">
-      <h1>Cnote - Web Clipper Extension</h1>
-      <!-- <p align="center">【English | <a href="cn-index.html">中文</a>】</p> -->
-      <p align="center">
-        【<router-link to="/">English</router-link> |
-        <router-link to="/zh-CN">中文</router-link>】
+      <p class="title-text" style="display: inline-flex; align-items: center">
+        <img src="/src/assets/images/logo.png" alt="Logo" class="logo" />
+        {{ $t("home_view.intro") }}
       </p>
-      <p>
-        <strong>Cnote</strong> is a simple and efficient browser extension that
-        helps users clip content from web pages into Markdown notes. It supports
-        multi-format export and cloud synchronization to keep your notes
-        accessible across devices.
-      </p>
+      <p>{{ $t("home_view.intro_description") }}</p>
     </div>
 
     <div class="card features">
-      <h2>🌟 Features</h2>
+      <p class="title-text">{{ $t("home_view.features") }}</p>
       <ul>
         <li>
-          📝 Select text from web pages and save it as a note in Markdown
-          format.
+          {{ $t("home_view.features_list.step1") }}
         </li>
         <li>
-          📑 Export notes in multiple formats: .md, .pdf, .html, .docx, and
-          .txt.
+          {{ $t("home_view.features_list.step2") }}
         </li>
         <li>
-          ☁️ Save notes to the cloud for seamless synchronization across
-          devices.
+          {{ $t("home_view.features_list.step3") }}
         </li>
-        <li>🖱️ Quick right-click menu: "Add to New Note" option.</li>
-        <li>🎨 Markdown editor with a real-time preview.</li>
+        <li>
+          {{ $t("home_view.features_list.step4") }}
+        </li>
+        <li>
+          {{ $t("home_view.features_list.step5") }}
+        </li>
       </ul>
     </div>
 
     <div class="card installation">
-      <h2>🚀 Installation Guide</h2>
+      <p class="title-text">{{ $t("home_view.installation_guide") }}</p>
 
-      <h3 class="browser-title">
+      <p class="browser-title">
         <img
           src="../assets/images/chrome-logo.png"
           alt="Chrome Logo"
           class="browser-logo"
         />
-        For Chrome Browser
-      </h3>
+        {{ $t("home_view.chrome_installation.browser_title") }}
+      </p>
       <ol>
         <li>
-          Visit the
+          {{ $t("home_view.chrome_installation.step1_before") }}
           <a
             href="https://chromewebstore.google.com/detail/c-note-add-web-page-conte/adckfinclpmhjnijmeeejkdhocikacgd?authuser=0&hl=en"
-            >Chrome Web Store</a
-          >
-          to download and install the extension.
+            >{{ $t("home_view.chrome_installation.step1_text") }}
+          </a>
+          {{ $t("home_view.chrome_installation.step1_after") }}
         </li>
         <li>
-          Once installed, right-click on any selected text and choose "Add to
-          New Note."
+          {{ $t("home_view.chrome_installation.step2") }}
         </li>
       </ol>
 
-      <h3 class="browser-title">
+      <p class="browser-title">
         <img
           src="../assets/images/edge-logo.png"
           alt="Edge Logo"
           class="browser-logo"
         />
-        For Edge Browser
-      </h3>
+        {{ $t("home_view.edge_installation.browser_title") }}
+      </p>
       <ol>
         <li>
-          Visit the
+          {{ $t("home_view.edge_installation.step1_before") }}
           <a
             href="https://microsoftedge.microsoft.com/addons/detail/bdcofhehaohhfckpelmkkpmigoemecpp"
-            >Edge Add-ons Store</a
-          >.
+            >{{ $t("home_view.edge_installation.step1_text") }}
+          </a>
+          .
         </li>
         <li>
-          Follow the instructions to install and start using the extension.
+          {{ $t("home_view.edge_installation.step2") }}
         </li>
       </ol>
     </div>
 
     <div class="card screenshots">
-      <!-- <h2>📸 Screenshots</h2>
-        <p>Add text to notes</p>
-        <img src="../assets/images/en/e1.png" alt="Add text to notes">
-        <p>Editor</p>
-        <img src="../assets/images/en/e2.png" alt="Editor">
-        <p>Add image to notes</p>
-        <img src="../assets/images/en/e3.png" alt="Add image to notes">
-        <p>Image in editor</p>
-        <img src="../assets/images/en/e4.png" alt="Image in editor">
-        <p>Settings</p>
-        <img src="../assets/images/en/e5.png" alt="Settings"> -->
-
+      <p class="title-text">
+        {{ $t("home_view.screenshots.screenshot_title") }}
+      </p>
       <swiper
         :spaceBetween="30"
         :centeredSlides="true"
@@ -111,73 +96,71 @@
         class="mySwiper"
       >
         <swiper-slide>
-          <h3>Add text to notes</h3>
+          <p>{{ $t("home_view.screenshots.screenshot_1") }}</p>
           <img src="../assets/images/en/e1.png" alt="Add text to notes" />
         </swiper-slide>
         <swiper-slide>
-          <h3>Editor</h3>
+          <p>{{ $t("home_view.screenshots.screenshot_2") }}</p>
           <img src="../assets/images/en/e2.png" alt="Add text to notes" />
         </swiper-slide>
         <swiper-slide>
-          <h3>Add image to notes</h3>
+          <p>{{ $t("home_view.screenshots.screenshot_3") }}</p>
           <img src="../assets/images/en/e3.png" alt="Add text to notes" />
         </swiper-slide>
         <swiper-slide>
-          <h3>Image in editor</h3>
+          <p>{{ $t("home_view.screenshots.screenshot_4") }}</p>
           <img src="../assets/images/en/e4.png" alt="Add text to notes" />
         </swiper-slide>
         <swiper-slide>
-          <h3>Settings</h3>
+          <p>{{ $t("home_view.screenshots.screenshot_5") }}</p>
           <img src="../assets/images/en/e5.png" alt="Add text to notes" />
         </swiper-slide>
       </swiper>
     </div>
 
     <div class="card privacy-policy">
-      <h2>📄 Privacy Policy</h2>
+      <p class="title-text">{{ $t("home_view.privacy_policy.title") }}</p>
       <p>
-        We are committed to protecting your privacy and ensuring your data is
-        secure. For more details, please refer to our privacy policy:
+        {{ $t("home_view.privacy_policy.description") }}
       </p>
       <ul>
         <li>
           <a
             href="https://itcwc.github.io/c-note-extension/cn/privacy-policy.html"
-            >Privacy Policy (CN)</a
+            >{{ $t("home_view.privacy_policy.links.cn") }}</a
           >
         </li>
         <li>
           <a
             href="https://itcwc.github.io/c-note-extension/en/privacy-policy.html"
-            >Privacy Policy (EN)</a
+            >{{ $t("home_view.privacy_policy.links.en") }}</a
           >
         </li>
       </ul>
     </div>
 
     <div class="card contact">
-      <h2>📬 Contact Us</h2>
+      <p class="title-text">{{ $t("home_view.contact_us.title") }}</p>
       <p>
-        If you have any questions or feedback, feel free to reach out to us:
+        {{ $t("home_view.contact_us.description") }}
       </p>
       <ul>
-        <li><strong>Email</strong>: itcwccc@gmail.com</li>
         <li>
-          <strong>GitHub Issues</strong>:
-          <a href="https://github.com/itcwc/c-note-extension/issues"
-            >Submit an Issue</a
-          >
+          {{ $t("home_view.contact_us.email") }}
+          <a href="mailto:itcwccc@gmail.com">itcwccc@gmail.com</a>
+        </li>
+        <li>
+          GitHub Issues:
+          <a href="https://github.com/itcwc/c-note-extension/issues">{{
+            $t("home_view.contact_us.github")
+          }}</a>
         </li>
       </ul>
     </div>
 
     <div class="card license">
-      <h2>⚠️ License</h2>
-      <p>
-        This project is open source and licensed under the
-        <a href="LICENSE">MIT License</a>. You are free to use, modify, and
-        distribute it.
-      </p>
+      <p class="title-text">{{ $t("home_view.license.title") }}</p>
+      <p>{{ $t("home_view.license.description1") }} <a style='color: #007bff;' href='https://github.com/itcwc/c-note-extension/LICENSE'>MIT License</a> {{ $t("home_view.license.description2") }}</p>
     </div>
   </div>
 </template>
@@ -208,8 +191,7 @@ export default defineComponent({
 <style scoped>
 .home-container {
   font-family: Arial, sans-serif;
-  margin: 20px;
-  /* background-color: #f5f5f5; */
+  margin: 10px 0 0 0;
 }
 
 .card {
@@ -251,9 +233,19 @@ export default defineComponent({
 }
 
 .browser-logo {
-  width: 50px;
-  height: 50px;
+  width: 25px;
+  height: 25px;
   margin-right: 8px;
+}
+
+.title-text {
+  font-size: 22px;
+}
+
+.logo {
+  width: 34px; /* 调整图标大小 */
+  height: auto;
+  margin-right: 8px; /* 图标与文本之间的间距 */
 }
 
 h1,
@@ -280,5 +272,9 @@ img {
   border-radius: 8px;
   display: block;
   margin: 0 auto;
+}
+
+a {
+  color: #007bff;
 }
 </style>
