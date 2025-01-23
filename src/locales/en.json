@@ -4,6 +4,7 @@
     "Editor": "Editor - CNote",
     "Sync": "Sync - CNote",
     "Login": "Login - CNote",
+    "Settings": "Settings - CNote",
     "Register": "Register - CNote",
     "ForgotPassword": "ForgotPassword - CNote"
   },
@@ -11,6 +12,7 @@
   "editor": "Editor",
   "sync": "Sync",
   "login": "Login",
+  "settings": "Settings",
   "home_view": {
     "intro": "Cnote - Web Clipper Extension",
     "intro_description": "Cnote is a simple and efficient browser extension that helps users clip content from web pages into Markdown notes. It supports multi-format export and cloud synchronization to keep your notes accessible across devices.",

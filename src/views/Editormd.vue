@@ -1,24 +1,56 @@
 <template>
-  <div id="editor-page">
+  <div id="editormd-page">
     <div id="editor-container"></div>
   </div>
 </template>
 
 <script>
-import { onMounted } from "vue";
+import { onMounted, watch } from "vue";
 
 export default {
-  name: "EditorPage",
-  setup() {
+  name: "Editormd",
+
+  props: {
+    value: { type: String, required: true },
+    height: { type: String, default: "100%" },
+    editLanguage: { type: String, default: "en" },
+    editorTheme: { type: String, default: "default" },
+    editorAreaTheme: { type: String, default: "default" },
+    previewAreaTheme: { type: String, default: "default" },
+
+  },
+
+  setup(props) {
+
+    function themeSelect(id, themes, lsKey, callback) {
+      var select = $("#" + id);
+      for (var i = 0, len = themes.length; i < len; i++) {
+        var theme = themes[i];
+        var selected = localStorage[lsKey] == theme ? ' selected="selected"' : "";
+        select.append(
+          '<option value="' + theme + '"' + selected + ">" + theme + "</option>"
+        );
+      }
+      select.bind("change", function () {
+        var theme = $(this).val();
+        if (theme === "") {
+          alert('theme == ""');
+          return false;
+        }
+        callback(select, theme);
+      });
+      return select;
+    }
+
     onMounted(() => {
       // 初始化 Editor.md
       const editor = editormd("editor-container", {
-        // width: "100%",
-        // height: 600,
-        path: "https://cdn.jsdelivr.net/npm/editor.md/lib/", // 如果使用 CDN，请设置此路径
-        theme: "default",
-        previewTheme: "default",
-        editorTheme: "default",
+        path: "https://cnote.itcwc.com/libs/editor.md/lib/",
+        width: "100%",
+        height: props.height,
+        theme: props.editorTheme,
+        previewTheme: props.previewAreaTheme,
+        editorTheme: props.editorAreaTheme,
         markdown: "### Welcome to Editor.md!",
         codeFold: true,
         syncScrolling: "single",
@@ -27,6 +59,7 @@ export default {
         imageUpload: true,
         imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
         imageUploadURL: "/upload/path", // 替换成你的图片上传接口
+        // lang: currentLang, // 初始化语言
         toolbarIcons: function () {
           return [
             "bold",
@@ -49,23 +82,95 @@ export default {
             "code-block",
             "table",
             "datetime",
+            "|",
+            "preview",
+            "watch",
+            "fullscreen"
           ];
         },
-
       });
+
+      // 编辑器语言选项
+      var editLanguage = props.editLanguage;
+      var path = "https://cnote.itcwc.com/libs/editor.md/languages/";
+      if (editLanguage == "zh_CN") {
+        editLanguage = "zh-cn";
+      }
+      editormd.loadScript(path + editLanguage, function () {
+        editor.lang = editormd.defaults.lang;
+      });
+
+
+
+      // 监听主题变化，动态更新配置
+      watch(
+        () => [props.editLanguage, props.editorTheme, props.editorAreaTheme, props.previewAreaTheme],
+        ([editLanguage, newEditorTheme, newEditorAreaTheme, newPreviewAreaTheme]) => {
+          if (editor) {
+            // 更新主题
+            editor.setTheme(newEditorTheme);
+            editor.setEditorTheme(newEditorAreaTheme);
+            editor.setPreviewTheme(newPreviewAreaTheme);
+
+            // 动态加载语言包并更新语言
+            const langPath = "https://cnote.itcwc.com/libs/editor.md/languages/"; // 根据实际路径调整
+            editormd.loadScript(`${langPath}${editLanguage}.js`, () => {
+              if (editormd.defaults.lang) {
+                editor.lang = editormd.defaults.lang;
+                editor.recreate(); // 重建编辑器以更新语言
+                console.log(`语言切换为：${editLanguage}`);
+              } else {
+                console.error(`语言包加载失败：${editLanguage}`);
+              }
+            });
+          }
+        }
+      );
+
+      themeSelect(
+        "editormd-theme-select",
+        editormd.themes,
+        "theme",
+        function ($this, theme) {
+          editor.setTheme(theme);
+        }
+      );
+
+      themeSelect(
+        "editor-area-theme-select",
+        editormd.editorThemes,
+        "editorTheme",
+        function ($this, theme) {
+          editor.setCodeMirrorTheme(theme);
+        }
+      );
+
+      themeSelect(
+        "preview-area-theme-select",
+        editormd.previewThemes,
+        "previewTheme",
+        function ($this, theme) {
+          editor.setPreviewTheme(theme);
+        }
+      );
+
     });
+
   },
 };
 </script>
 
 <style scoped>
-#editor-page {
+#editormd-page {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
+  margin: 0px 0 0 0;
 }
 
 #editor-container {
   width: 100%;
+  margin: 0 0 5px 0;
 }
 </style>

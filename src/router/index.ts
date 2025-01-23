@@ -3,6 +3,7 @@ import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import Editor from "../views/Editor.vue";
 import Sync from "../views/Sync.vue";
+import Settings from "../views/Settings.vue";
 // import CNHome from "../views/zh-CN/Home.vue";
 import Register from "../views/Register.vue";
 import ForgotPassword from '../views/ForgotPassword.vue';
@@ -22,6 +23,7 @@ const routes = [
   { path: '/', name: 'Home', component: Home },
   { path: '/editor', name: 'Editor', component: Editor },
   { path: '/sync', name: 'Sync', component: Sync },
+  { path: '/settings', name: 'Settings', component: Settings },
   { path: '/login', name: 'Login', component: Login },
   { path: '/register', name: 'Register', component: Register },
   { path: '/forgot-password', name: 'ForgotPassword', component: ForgotPassword },

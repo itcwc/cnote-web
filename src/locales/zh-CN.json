@@ -2,8 +2,9 @@
     "titles": {
         "Home": "首页 - CNote",
         "Editor": "编辑 - CNote",
-        "Sync": "同步 - CNote",
+        "Sync": "云同步 - CNote",
         "Login": "登录 - CNote",
+        "Settings": "设置 - CNote",
         "Register": "注册 - CNote",
         "ForgotPassword": "忘记密码 - CNote"
     },
@@ -11,6 +12,7 @@
     "editor": "在线编辑",
     "sync": "云同步",
     "login": "登录",
+    "settings": "设置",
     "home_view": {
         "intro": "Cnote - 网页剪辑扩展",
         "intro_description": "Cnote 是一个简单高效的浏览器扩展，帮助用户将网页内容剪辑为 Markdown 笔记。支持多格式导出和云同步，便于在不同设备间访问笔记。",

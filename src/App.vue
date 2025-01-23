@@ -15,6 +15,10 @@
       <router-link to="/sync" class="nav-link" active-class="active">{{
         $t("sync")
       }}</router-link>
+
+      <router-link to="/settings" class="nav-link" active-class="active">{{
+        $t("settings")
+      }}</router-link>
     </div>
 
     <div class="navbar-right">
@@ -74,6 +78,7 @@ export default {
   padding: 0 20px;
   background-color: #f0f3f5;
   border-radius: 8px;
+  height: 5%;
 }
 
 .navbar-left {
@@ -116,5 +121,23 @@ export default {
   padding: 5px;
   margin-left: 10px;
   font-size: 16px;
+}
+
+div::-webkit-scrollbar {
+  width: 3px;
+}
+
+div::-webkit-scrollbar-track {
+  background: rgb(239, 239, 239);
+  border-radius: 2px;
+}
+
+div::-webkit-scrollbar-thumb {
+  background: #40a0ff49;
+  border-radius: 10px;
+}
+
+div::-webkit-scrollbar-thumb:hover {
+  background: #40a0ff;
 }
 </style>

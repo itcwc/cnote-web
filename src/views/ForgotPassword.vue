@@ -43,7 +43,8 @@ export default defineComponent({
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 82vh;
+  /* min-height: 82vh; */
+  height: 93%;
   background-color: #f0f3f5;
   padding: 20px;
   border-radius: 8px;
